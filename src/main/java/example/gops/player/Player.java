@@ -3,12 +3,15 @@ package example.gops.player;
 import example.gops.Deck;
 
 public abstract class Player {
+    private String name;
     Deck cards;
+    int playCard;
     private int score;
 
-    public Player() {
+    public Player(String name) {
         cards = new Deck();
         score = 0;
+        this.name = name;
     }
 
     public int scorePoint(int value) {
@@ -19,5 +22,23 @@ public abstract class Player {
         return score;
     }
 
-    public abstract int playCard(int scoreCard);
+    public String getName() {
+        return name;
+    }
+
+    public int getPlayCard() {
+        return playCard;
+    }
+
+    public abstract int play(int scoreCard);
+
+    @Override
+    public String toString() {
+        return "Player{" +
+            "name='" + name + '\'' +
+            //", cards=" + cards +
+            //", playCard=" + playCard +
+            ", score=" + score +
+            '}';
+    }
 }

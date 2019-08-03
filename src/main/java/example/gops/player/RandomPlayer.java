@@ -1,7 +1,13 @@
 package example.gops.player;
 
 public class RandomPlayer extends Player {
-    public int playCard(int scoreCard) {
-        return cards.popRandom();
+
+    public RandomPlayer(String name) {
+        super(name);
+    }
+
+    public int play(int scoreCard) {
+        this.playCard = cards.popRandom();
+        return this.playCard;
     }
 }

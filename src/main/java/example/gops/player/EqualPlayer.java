@@ -1,8 +1,15 @@
 package example.gops.player;
 
 public class EqualPlayer extends Player {
-    public int playCard(int scoreCard) {
+
+    public EqualPlayer(String name) {
+        super(name);
+    }
+
+    @Override
+    public int play(int scoreCard) {
         cards.remove(scoreCard);
+        playCard = scoreCard;
         return scoreCard;
     }
 }
