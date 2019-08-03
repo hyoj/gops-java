@@ -20,15 +20,13 @@ public class GamePlayers {
     }
 
     void scorePoint(int scoreCard) {
-        int toScoreIndex = 0;
+        List<Player> sortedPlayersByPlayCard = players.stream()
+            .sorted(Comparator.comparing(Player::getPlayCard).reversed())
+            .collect(Collectors.toList());
 
-        for (int i = 1; i < players.size(); i++) {
-            if (players.get(toScoreIndex).getPlayCard() < players.get(i).getPlayCard()) {
-                toScoreIndex = i;
-            }
+        if (sortedPlayersByPlayCard.get(0).getPlayCard() > sortedPlayersByPlayCard.get(1).getPlayCard()) {
+            sortedPlayersByPlayCard.get(0).scorePoint(scoreCard);
         }
-
-        players.get(toScoreIndex).scorePoint(scoreCard);
     }
 
     public String toStringPlayersPlayCard() {
