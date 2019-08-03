@@ -2,7 +2,6 @@ package example.gops;
 
 import example.gops.player.EqualPlayer;
 import example.gops.player.RandomPlayer;
-import java.util.Arrays;
 
 public class Game {
     private GamePlayers players;
@@ -10,8 +9,7 @@ public class Game {
     private int turn;
 
     public Game() {
-        players = new GamePlayers(
-            Arrays.asList(new RandomPlayer("P0"), new EqualPlayer("P1")));
+        players = new GamePlayers(new RandomPlayer("P0"), new EqualPlayer("P1"));
         scoreCards = new Deck();
         turn = 0;
     }

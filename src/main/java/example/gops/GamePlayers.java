@@ -1,6 +1,7 @@
 package example.gops;
 
 import example.gops.player.Player;
+import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
@@ -9,8 +10,8 @@ import java.util.stream.Collectors;
 public class GamePlayers {
     private List<Player> players;
 
-    GamePlayers(List<Player> players) {
-        this.players = players;
+    GamePlayers(Player... players) {
+        this.players = Arrays.asList(players);
     }
 
     public void playCard(int scoreCard) {
